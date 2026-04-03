@@ -24,7 +24,7 @@
    - **Visibility**：选 **Public**
 3. 点击 **Create Space**
 
-### 第二步：上传文件
+### 第二步：创建文件
 
 在 Space 里创建以下文件：
 
