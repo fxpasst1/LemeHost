@@ -163,7 +163,7 @@ class LemeHostRenewer:
         m = re.search(pattern, html)
         return m.group(1) if m else ""
 
-    def _solve_captcha(self, cap_url, min_len=6, max_len=6, max_try=15):
+    def _solve_captcha(self, cap_url, min_len=6, max_len=7, max_try=15):
         """通用验证码识别"""
         for ct in range(1, max_try + 1):
             try:
@@ -859,14 +859,12 @@ def make_page():
             <span>⏱️ {rt}</span>
         </div>
     </div>
-
     <div class="info-bar">
         <span>📡 上次: <b>{s.get("last_check") or "--"}</b></span>
         <span>⏳ 下次: <b>{s.get("next_check") or "--"}</b></span>
         <span>🎯 阈值: <b>{RENEW_THRESHOLD}s ({RENEW_THRESHOLD // 60}分)</b></span>
         <span>🔁 间隔: <b>{CHECK_INTERVAL}s</b></span>
     </div>
-
     <div class="main">
         <div class="left-panel">
             <div class="card">
@@ -878,7 +876,6 @@ def make_page():
                 <div class="logs">{logs}</div>
             </div>
         </div>
-
         <div class="sidebar">
             <div class="card">
                 <div class="card-title">📊 统计</div>
@@ -891,7 +888,6 @@ def make_page():
                     <div class="stat-item"><div class="stat-val">{s["checks"]}</div><div class="stat-label">检查</div></div>
                 </div>
             </div>
-
             <div class="card">
                 <div class="card-title">⚙️ 环境变量</div>
                 <div class="config-table">
@@ -925,7 +921,6 @@ def make_page():
                     </div>
                 </div>
             </div>
-
             <div class="card">
                 <div class="card-title">📖 LEME 格式</div>
                 <div class="help-steps">
@@ -942,25 +937,19 @@ CSS = """
 #huggingface-space-header { display: none !important; }
 footer { display: none !important; }
 .gradio-container { background: #f8fafc !important; padding: 0 !important; }
-
 .container { max-width: 1200px; margin: 0 auto; padding: 16px; font-family: system-ui, -apple-system, sans-serif; }
-
 .header { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: white; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 10px; flex-wrap: wrap; }
 .logo { font-size: 16px; font-weight: 700; color: #1e293b; }
 .badge { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 16px; font-size: 11px; font-weight: 600; }
 .stats-row { display: flex; gap: 12px; margin-left: auto; font-size: 12px; color: #64748b; flex-wrap: wrap; }
 .stats-row b { color: #1e293b; }
-
 .info-bar { display: flex; gap: 16px; padding: 8px 16px; background: white; border-radius: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.06); margin-bottom: 10px; font-size: 12px; color: #64748b; flex-wrap: wrap; }
 .info-bar b { color: #374151; }
-
 .main { display: grid; grid-template-columns: 1fr 300px; gap: 12px; }
 @media (max-width: 800px) { .main { grid-template-columns: 1fr; } }
-
 .card { background: white; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); overflow: hidden; margin-bottom: 12px; }
 .card-title { padding: 10px 14px; font-size: 13px; font-weight: 600; color: #374151; border-bottom: 1px solid #e5e7eb; display: flex; }
 .card-title .sub { margin-left: auto; color: #9ca3af; font-weight: 400; }
-
 .server-list { padding: 8px; }
 .server-card { padding: 10px 12px; border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 8px; }
 .server-card:last-child { margin-bottom: 0; }
@@ -970,13 +959,9 @@ footer { display: none !important; }
 .server-bar-wrap { height: 4px; background: #e5e7eb; border-radius: 2px; margin-bottom: 6px; overflow: hidden; }
 .server-bar { height: 100%; border-radius: 2px; transition: width 0.5s ease; }
 .server-details { display: flex; gap: 12px; font-size: 11px; color: #64748b; flex-wrap: wrap; }
-
 .empty { padding: 30px; text-align: center; color: #9ca3af; font-size: 13px; }
-
 .logs { padding: 10px; font-family: 'SF Mono', Consolas, 'Courier New', monospace; font-size: 11px; line-height: 1.8; color: #475569; background: #f8fafc; height: 400px; overflow-y: auto; white-space: pre-wrap; word-break: break-all; }
-
 .sidebar { display: flex; flex-direction: column; }
-
 .stat-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; }
 .stat-item { padding: 12px 8px; text-align: center; border-bottom: 1px solid #e5e7eb; border-right: 1px solid #e5e7eb; }
 .stat-item:nth-child(3n) { border-right: none; }
@@ -985,7 +970,6 @@ footer { display: none !important; }
 .stat-val.green { color: #10b981; }
 .stat-val.red { color: #ef4444; }
 .stat-label { font-size: 10px; color: #9ca3af; text-transform: uppercase; margin-top: 2px; }
-
 .config-table { padding: 0; }
 .config-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 12px; border-bottom: 1px solid #f1f5f9; font-size: 11px; }
 .config-row:last-child { border-bottom: none; }
@@ -993,13 +977,11 @@ footer { display: none !important; }
 .config-row code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-size: 10px; color: #1e293b; font-family: 'SF Mono', Consolas, monospace; }
 .config-row .req { color: #ef4444; font-size: 9px; }
 .config-row .opt { color: #6b7280; font-size: 9px; }
-
 .help-steps { padding: 12px; }
 .url-example { padding: 8px 12px; background: #f1f5f9; border-radius: 6px; border-left: 3px solid #3b82f6; margin-bottom: 8px; }
 .url-example code { font-size: 12px; color: #3b82f6; font-family: 'SF Mono', Consolas, monospace; }
 .tip { padding: 10px 12px; background: #fffbeb; border-radius: 6px; font-size: 11px; color: #92400e; line-height: 1.6; }
 .tip code { background: #fef3c7; padding: 1px 4px; border-radius: 3px; font-size: 10px; }
-
 .left-panel { display: flex; flex-direction: column; }
 """
 
