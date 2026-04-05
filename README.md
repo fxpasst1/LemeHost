@@ -39,7 +39,7 @@
 | `LEME` | `邮箱-----密码` | ✅ 必填 | LemeHost 账号密码 |
 | `TG_BOT_TOKEN` | Bot Token | 推荐 | Telegram 机器人 Token |
 | `TG_CHAT_ID` | Chat ID | 推荐 | Telegram 聊天 ID |
-| `TG_API` | 反代地址 | 推荐 | TG API 反代（HF 无法直连）[_worker.js](./_worker.js) |
+| `TG_API` | 反代地址 | 推荐 | TG API 反代（HF 无法直连）[Cloudflare Workers 自建反代](./_worker.js) |
 | `PROJECT_URL` | Space URL | 推荐 | 保活防休眠 |
 | `CHECK_INTERVAL` | `300` | 可选 | 检查间隔秒数，默认 300 |
 | `RENEW_THRESHOLD` | `900` | 可选 | 续期阈值秒数，默认 900 |
